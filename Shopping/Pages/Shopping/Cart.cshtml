@@ -1,0 +1,46 @@
+﻿@page
+@model CartModel
+@{
+}
+<h2>Your Shopping Cart</h2>
+<form method="post">
+
+   
+    <div class="form-group">
+        <label asp-for="@Model.Promocode"></label>
+        <input asp-for="@Model.Promocode" class="form-control" />
+        <span class="text-danger" asp-validation-for="@Model.Promocode"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Promocode</button>
+</form>
+<table class="table">
+       <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    @foreach (var item in Model.cartItems)
+    {
+        <tr>
+            <td>@item.Product?.ProductName</td>
+            <td>
+                @item.Quantity
+            </td>
+            <td>
+                £@(item.Quantity* item.Product?.Price)
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan=2>Total</td>
+        <td>£@Model.Price</td>
+    </tr>
+     <tr>
+        <td colspan=2>Discount</td>
+        <td>£@Model.TotalDiscount.ToString("0.00")</td>
+    </tr>
+    <tr>
+        <td colspan=2>Total To Pay</td>
+        <td>£@((Model.Price - Model.TotalDiscount).ToString("0.00"))</td>
+    </tr>
+</table>

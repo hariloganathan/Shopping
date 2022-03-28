@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <h1 class="display-4">Welcome To Shopping Cart Test</h1>
+    I have summarized my thought process on how I approached this exercise below
+    <br />
+    I have followed TDD approach where I created test cases for each user story provided to me as step 1 
+    <ul>
+        <li>As a User I Want to be able to add a single product to a basket</li>
+        <li>As a User I want to be able to add multiple products to a basket</li>
+        <li>As a User I want to be able to see the total cost of my basket</li>
+        <li>As a User I want to be able apply a discount code and see the price before and after the discount</li>
+    </ul>
+    I have created an in-memory cart, promo code and products which implements an interface which can be injected into a .net core application and can replaced with an SQL DB.
+    <br />
+    I have implemented SOLID principles and best practices where I can in Core and Data class libraries.
+    <br />
+    If the exercise involves storage and retrieval on DB I would have used EF core and displayed the results from SQL DB.
+    <br />
+    <strong>Please note:</strong>
+    <ul>
+        <li>I have spent only 20% time on the Shopping .Net Core front facing website so it might not be 100% PROD quality</li>
+        <li>I beleive code should be the document so I have used minimum or no comments and tried to give meaningful names for variables, Methods and Classes</li>
+    </ul>    
+
+    <br />
+    Use the below Promocodes for your test
+    <table class="table">
+        <tr>
+            <th>Promocode</th>
+            <th>Discount Percentage</th>
+        </tr>
+        <tr>
+            <td>TWENTYFIVE</td>
+            <td>25%</td>
+        </tr>
+        <tr>
+            <td>FIFTY</td>
+            <td>50%</td>
+        </tr>
+        <tr>
+            <td>SEVENTYFIVE</td>
+            <td>75%</td>
+        </tr>
+    </table>
+    <a asp-page=".\Shopping\list" class="btn btn-primary">Go To Shopping</a>
+</div>

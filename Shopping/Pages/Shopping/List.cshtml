@@ -1,0 +1,27 @@
+﻿@page
+@model ListModel
+@{
+}
+Total :£@Model.Price.ToString("0.00")
+<a asp-page=".\Cart" class="btn btn-primary">GoTo Cart</a>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Add to Cart</th>
+    </tr>
+    @foreach (var product in Model.Products)
+    {
+        <form method="post">
+        <tr>
+            <td>@product.ProductName</td>
+            <td>Price: £@product.Price.ToString("0.00")</td>
+            <td>
+                <input type="hidden" name="ProductId" value="@product.ProductId" />
+                <button type="submit" class="btn btn-primary">Add To Cart</button>
+            </td>
+        </tr>
+        </form>
+    }
+</table>
+
